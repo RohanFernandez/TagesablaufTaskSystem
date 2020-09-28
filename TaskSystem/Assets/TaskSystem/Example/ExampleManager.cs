@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FRETBUZZ;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,5 +21,20 @@ public class ExampleManager : MonoBehaviour
     {
         m_TaskManager.destroy();
         m_EventManager.destroy();
+    }
+
+    public void addTaskList(string a_strTaskAssetPath)
+    {
+        TaskManager.AddTaskList(a_strTaskAssetPath);
+    }
+
+    public void removeTaskList(string a_strTaskListName)
+    {
+        TaskManager.RemoveTaskList(a_strTaskListName);
+    }
+
+    public void setTaskListAsCurrent(string a_strTaskAssetPath)
+    {
+        TaskManager.SetCurrentTaskList(a_strTaskAssetPath);
     }
 }

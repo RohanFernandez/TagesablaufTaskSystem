@@ -85,16 +85,23 @@ namespace FRETBUZZ
         public static void AddTaskList(string a_strAssetPath)
         {
             Object l_AssetObject = Resources.Load(a_strAssetPath);
-            TaskList l_TaskList = l_AssetObject as TaskList;
 
-            if ((l_TaskList != null) && !s_Instance.isTaskListExistInList(l_TaskList.m_strName))
+            bool l_bIsLoadedSuccessfully = false;
+
+            if (l_AssetObject != null)
             {
-                l_TaskList = MonoBehaviour.Instantiate(l_TaskList);
-                s_Instance.m_lstLoadedTaskLists.Add(l_TaskList);
-                s_Instance.m_dictLevelTaskList.Add(l_TaskList.m_strName, l_TaskList);
-                l_TaskList.initialize();
+                TaskList l_TaskList = l_AssetObject as TaskList;
+                if ((l_TaskList != null) && !s_Instance.isTaskListExistInList(l_TaskList.m_strName))
+                {
+                    l_TaskList = MonoBehaviour.Instantiate(l_TaskList);
+                    s_Instance.m_lstLoadedTaskLists.Add(l_TaskList);
+                    s_Instance.m_dictLevelTaskList.Add(l_TaskList.m_strName, l_TaskList);
+                    l_TaskList.initialize();
+                    l_bIsLoadedSuccessfully = true;
+                }
             }
-            else
+
+            if (!l_bIsLoadedSuccessfully)
             {
                 Debug.Log("<color=ORANGE>TaskManager::AddTaskList:: Unable to add task list at path '" + a_strAssetPath + "' .</color>");
             }

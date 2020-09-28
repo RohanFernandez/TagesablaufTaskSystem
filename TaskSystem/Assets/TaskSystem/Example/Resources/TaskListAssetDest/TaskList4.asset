@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4595f7ab941f18d4e8222cedf8cc9054, type: 3}
+  m_Name: TaskList4
+  m_EditorClassIdentifier: 
+  m_strName: TaskList4
+  m_iSequenceCount: 5
+  m_lstSequences:
+  - m_strSequenceType: SimpleSequence
+    m_strSequenceID: Execute01
+    m_iTaskCount: 0
+    m_lstTasks: []
+  - m_strSequenceType: SimpleSequence
+    m_strSequenceID: Execute02
+    m_iTaskCount: 0
+    m_lstTasks: []
+  - m_strSequenceType: SimpleSequence
+    m_strSequenceID: Execute03
+    m_iTaskCount: 0
+    m_lstTasks: []
+  - m_strSequenceType: SimpleSequence
+    m_strSequenceID: Execute04
+    m_iTaskCount: 0
+    m_lstTasks: []
+  - m_strSequenceType: SimpleSequence
+    m_strSequenceID: Execute05
+    m_iTaskCount: 0
+    m_lstTasks: []
