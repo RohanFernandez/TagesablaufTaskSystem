@@ -21,6 +21,9 @@ namespace FRETBUZZ
         private static string m_strTaskListXMLSrc = string.Empty;
         private static string m_strTaskListAssetDest = string.Empty;
 
+        private const string DEFAULT_TASK_LIST_ASSET_DEST = "Assets\\TaskSystem\\Example\\TaskListAssetDest";
+        private const string DEFAULT_TASK_LIST_XML_SRC = "Assets\\TaskSystem\\Example\\TaskListXMLSrc";
+
         private const string XML_EXTENSION = ".xml";
 
         public enum ASSET_TYPE
@@ -88,13 +91,13 @@ namespace FRETBUZZ
 
         #region EDITOR POP UP WINDOW
 
-        [UnityEditor.MenuItem("Task System//Project Helper Window")]
+        [UnityEditor.MenuItem("Task System//Manager")]
         private static void OpenPopUpWindow()
         {
             if (s_Instance == null)
             {
                 s_Instance = (ProjectHandler)EditorWindow.GetWindow(typeof(ProjectHandler));//EditorWindow.CreateInstance<ProjectHandler>() as ProjectHandler;
-                s_Instance.titleContent = new GUIContent("Project Helper Window");
+                s_Instance.titleContent = new GUIContent("Task System");
                 s_Instance.Show();
             }
         }
@@ -104,14 +107,26 @@ namespace FRETBUZZ
 
         void OnGUI()
         {
-            GUILayout.Space(10.0f);
+            GUILayout.Space(20.0f);
 
-            GUILayout.Label("Scriptable Objects", EditorStyles.boldLabel);
+            GUILayout.Label("-----\tCREATION\t-----", EditorStyles.boldLabel);
 
             GUILayout.Label("Task List XML Source Path (ex 'Assets\\FOLDER_NAME')", EditorStyles.boldLabel);
+
+            if (string.IsNullOrEmpty(m_strTaskListXMLSrc))
+            {
+                m_strTaskListXMLSrc = DEFAULT_TASK_LIST_XML_SRC;
+            }
+
             m_strTaskListXMLSrc = EditorGUILayout.TextField(m_strTaskListXMLSrc);
 
             GUILayout.Label("Task List Asset Destination Path (ex 'Assets\\FOLDER_NAME') : ", EditorStyles.boldLabel);
+
+            if (string.IsNullOrEmpty(m_strTaskListAssetDest))
+            {
+                m_strTaskListAssetDest = DEFAULT_TASK_LIST_ASSET_DEST;
+            }
+
             m_strTaskListAssetDest = EditorGUILayout.TextField(m_strTaskListAssetDest);
 
             GUILayout.Space(8.0f);
@@ -120,9 +135,9 @@ namespace FRETBUZZ
                 CreateAllScriptableObject();
             }
 
-            GUILayout.Space(10.0f);
+            GUILayout.Space(30.0f);
 
-            GUILayout.Label("Task List", EditorStyles.boldLabel);
+            GUILayout.Label("-----\tEXECUTION\t-----", EditorStyles.boldLabel);
             m_strSequenceToExecute = EditorGUILayout.TextField("Sequence Name:", m_strSequenceToExecute);
             if (GUILayout.Button("Execute Sequence", GUILayout.Width(120)))
             {

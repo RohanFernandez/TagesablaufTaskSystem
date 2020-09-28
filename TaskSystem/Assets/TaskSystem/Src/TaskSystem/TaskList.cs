@@ -103,7 +103,7 @@ namespace FRETBUZZ
             }
 
             ///Create Task list
-            TaskList l_TaskList = new TaskList();
+            TaskList l_TaskList = ScriptableObject.CreateInstance<TaskList>();
             l_TaskList.m_strName = l_strTaskListName;
             l_TaskList.m_lstSequences = l_lstSequences;
             l_TaskList.m_iSequenceCount = l_iSequenceCount;

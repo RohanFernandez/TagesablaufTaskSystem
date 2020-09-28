@@ -24,12 +24,6 @@ namespace FRETBUZZ
         private TaskList m_CurrentTaskList = null;
 
         /// <summary>
-        /// The Common loaded task list, be loaded automatically on start
-        /// </summary>
-        [SerializeField]
-        private TaskList m_CommonTaskList = null;
-
-        /// <summary>
         /// Dictionary of the level name to its corresponding task list asset
         /// </summary>
         private Dictionary<string, TaskList> m_dictLevelTaskList = null;
@@ -43,27 +37,6 @@ namespace FRETBUZZ
         /// Task list assets path
         /// </summary>
         private const string TASK_LIST_ASSETS_PATH = "TaskListAssets";
-
-        /// <summary>
-        /// Name of the common task list
-        /// </summary>
-        private const string TASK_LIST_NAME_COMMON = "COMMON_LIST";
-
-
-        ///// <summary>
-        ///// Postfix of task name "statename" + TASK_POSTFIX_ON_STATE_LOAD to execute on state begins to load.
-        ///// </summary>
-        //private const string TASK_POSTFIX_ON_STATE_LOAD = "_OnStateLoad";
-
-        /// <summary>
-        /// sequence called on a new level is entered/ task list is set
-        /// </summary>
-        private const string TASK_POSTFIX_ON_LIST_START = "_OnListStart";
-
-        /// <summary>
-        /// sequence called on a old level is entered/ task list is ended or not used anymore
-        /// </summary>
-        private const string TASK_POSTFIX_ON_LIST_END = "_OnListEnd";
 
         /// <summary>
         /// List of all currently running sequences
@@ -100,11 +73,6 @@ namespace FRETBUZZ
             {
                 TaskList l_TaskList = m_lstLoadedTaskLists[l_iTaskListIndex];
                 m_dictLevelTaskList.Add(l_TaskList.m_strName, l_TaskList);
-
-                if (l_TaskList.m_strName.Equals(TASK_LIST_NAME_COMMON, System.StringComparison.OrdinalIgnoreCase))
-                {
-                    m_CommonTaskList = l_TaskList;
-                }
             }
 
             return s_Instance;
@@ -150,11 +118,6 @@ namespace FRETBUZZ
                 return;
             }
 
-            if (m_CurrentTaskList != null)
-            {
-                ExecuteSequence(m_CurrentTaskList.m_strName + TASK_POSTFIX_ON_LIST_END);
-            }
-
             TaskList l_TaskList = null;
             if (m_dictLevelTaskList.TryGetValue(a_strLevelName, out l_TaskList))
             {
@@ -163,13 +126,7 @@ namespace FRETBUZZ
             }
             else
             {
-                m_CurrentTaskList = null;
-                Debug.Log("<color=ORANGE>TaskManager::setTaskList:: Task list for level type '"+ a_strLevelName + "' does not exist</color>");
-            }
-
-            if (m_CurrentTaskList != null)
-            {
-                ExecuteSequence(m_CurrentTaskList.m_strName + TASK_POSTFIX_ON_LIST_START);
+                Debug.Log("<color=ORANGE>TaskManager::setTaskList:: Task list for level type '"+ a_strLevelName + "' does not exist. Current task list unchanged.</color>");
             }
         }
 
@@ -188,11 +145,6 @@ namespace FRETBUZZ
             if (s_Instance.m_CurrentTaskList != null)
             {
                 l_Sequence = s_Instance.m_CurrentTaskList.getSequenceWithID(a_strSequenceID);
-            }
-
-            if (l_Sequence == null)
-            {
-                l_Sequence = s_Instance.m_CommonTaskList.getSequenceWithID(a_strSequenceID);
             }
 
             if (l_Sequence == null)
