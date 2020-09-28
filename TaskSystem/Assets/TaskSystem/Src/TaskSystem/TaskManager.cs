@@ -22,6 +22,10 @@ namespace FRETBUZZ
         /// </summary>
         [SerializeField]
         private TaskList m_CurrentTaskList = null;
+        public static string CurrentTaskListName
+        {
+            get { return s_Instance.m_CurrentTaskList == null ? "null" : s_Instance.m_CurrentTaskList.m_strName; }
+        }
 
         /// <summary>
         /// Dictionary of the level name to its corresponding task list asset

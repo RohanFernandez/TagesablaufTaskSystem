@@ -11,10 +11,14 @@ public class ExampleManager : MonoBehaviour
     [SerializeField]
     private FRETBUZZ.TaskManager m_TaskManager = null;
 
+    [SerializeField]
+    private UnityEngine.UI.Text m_txtCurrentTaskListName = null;
+
     void Awake()
     {
         m_EventManager.initialize();
         m_TaskManager.initialize();
+        m_txtCurrentTaskListName.text = TaskManager.CurrentTaskListName;
     }
 
     void OnDestroy()
@@ -36,5 +40,7 @@ public class ExampleManager : MonoBehaviour
     public void setTaskListAsCurrent(string a_strTaskAssetPath)
     {
         TaskManager.SetCurrentTaskList(a_strTaskAssetPath);
+
+        m_txtCurrentTaskListName.text = TaskManager.CurrentTaskListName;
     }
 }
