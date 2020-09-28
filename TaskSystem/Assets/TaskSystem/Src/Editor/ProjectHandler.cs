@@ -21,7 +21,7 @@ namespace FRETBUZZ
         private static string m_strTaskListXMLSrc = string.Empty;
         private static string m_strTaskListAssetDest = string.Empty;
 
-        private const string DEFAULT_TASK_LIST_ASSET_DEST = "Assets\\TaskSystem\\Example\\TaskListAssetDest";
+        private const string DEFAULT_TASK_LIST_ASSET_DEST = "Assets\\TaskSystem\\Example\\Resources\\TaskListAssetDest";
         private const string DEFAULT_TASK_LIST_XML_SRC = "Assets\\TaskSystem\\Example\\TaskListXMLSrc";
 
         private const string XML_EXTENSION = ".xml";
@@ -96,8 +96,8 @@ namespace FRETBUZZ
         {
             if (s_Instance == null)
             {
-                s_Instance = (ProjectHandler)EditorWindow.GetWindow(typeof(ProjectHandler));//EditorWindow.CreateInstance<ProjectHandler>() as ProjectHandler;
-                s_Instance.titleContent = new GUIContent("Task System");
+                s_Instance = (ProjectHandler)EditorWindow.GetWindow(typeof(ProjectHandler));
+                s_Instance.titleContent = new GUIContent("Manager");
                 s_Instance.Show();
             }
         }

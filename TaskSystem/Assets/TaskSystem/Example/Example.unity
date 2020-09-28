@@ -502,9 +502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d83078ae7770cf48a44ac3111cd88da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lstLoadedTaskLists:
-  - {fileID: 11400000, guid: 805564becf226d246acd68562e4c0140, type: 2}
-  m_CurrentTaskList: {fileID: 11400000, guid: 805564becf226d246acd68562e4c0140, type: 2}
+  m_lstLoadedTaskLists: []
+  m_CurrentTaskList: {fileID: 0}
 --- !u!114 &1368968520
 MonoBehaviour:
   m_ObjectHideFlags: 0

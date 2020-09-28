@@ -34,11 +34,6 @@ namespace FRETBUZZ
         private TaskPoolManager m_TaskPoolManager = null;
 
         /// <summary>
-        /// Task list assets path
-        /// </summary>
-        private const string TASK_LIST_ASSETS_PATH = "TaskListAssets";
-
-        /// <summary>
         /// List of all currently running sequences
         /// </summary>
         private List<ISequence> m_lstRunningSequneces = null;
@@ -64,16 +59,7 @@ namespace FRETBUZZ
             m_lstRunningSequneces = new List<ISequence>(10);
             m_stackEndedLastFrame = new Stack<ISequence>(10);
 
-            initializeTaskLists();
-
-            ///initialize dictionary of level type to task list
-            int l_iTotalTaskLists = m_lstLoadedTaskLists.Count;
-            m_dictLevelTaskList = new Dictionary<string, TaskList>(l_iTotalTaskLists);
-            for (int l_iTaskListIndex = 0; l_iTaskListIndex < l_iTotalTaskLists; l_iTaskListIndex++)
-            {
-                TaskList l_TaskList = m_lstLoadedTaskLists[l_iTaskListIndex];
-                m_dictLevelTaskList.Add(l_TaskList.m_strName, l_TaskList);
-            }
+            m_dictLevelTaskList = new Dictionary<string, TaskList>(5);
 
             return s_Instance;
         }
@@ -92,41 +78,88 @@ namespace FRETBUZZ
         }
 
         /// <summary>
-        /// Intializes all task lists
-        /// Creates 
+        /// Adds the task list at path given, if
+        /// the task list asset with the same name does not already exist
         /// </summary>
-        private void initializeTaskLists()
+        /// <param name="a_strAssetPath"></param>
+        public static void AddTaskList(string a_strAssetPath)
         {
-            Object[] l_arrAssets = Resources.LoadAll(TASK_LIST_ASSETS_PATH);
-            int l_iAssetCount = l_arrAssets.Length;
-            for (int l_iAssetIndex = 0; l_iAssetIndex < l_iAssetCount; l_iAssetIndex++)
+            Object l_AssetObject = Resources.Load(a_strAssetPath);
+            TaskList l_TaskList = l_AssetObject as TaskList;
+
+            if ((l_TaskList != null) && !s_Instance.isTaskListExistInList(l_TaskList.m_strName))
             {
-                Object l_AssetObject = l_arrAssets[l_iAssetIndex];
-                TaskList l_TaskList = MonoBehaviour.Instantiate(l_AssetObject) as TaskList;
-                m_lstLoadedTaskLists.Add(l_TaskList);
+                l_TaskList = MonoBehaviour.Instantiate(l_TaskList);
+                s_Instance.m_lstLoadedTaskLists.Add(l_TaskList);
+                s_Instance.m_dictLevelTaskList.Add(l_TaskList.m_strName, l_TaskList);
                 l_TaskList.initialize();
             }
+            else
+            {
+                Debug.Log("<color=ORANGE>TaskManager::AddTaskList:: Unable to add task list at path '" + a_strAssetPath + "' .</color>");
+            }
+        }
+
+        /// <summary>
+        /// Removes task list with given name from the dictionary and loaded list 
+        /// </summary>
+        /// <param name="a_strTaskListName"></param>
+        public static void RemoveTaskList(string a_strTaskListName)
+        {
+            TaskList l_TaskList = null;
+            if (s_Instance.m_dictLevelTaskList.TryGetValue(a_strTaskListName, out l_TaskList))
+            {
+                s_Instance.m_dictLevelTaskList.Remove(a_strTaskListName);
+                s_Instance.m_lstLoadedTaskLists.Remove(l_TaskList);
+                if ((s_Instance.m_CurrentTaskList != null) && l_TaskList.m_strName.Equals(s_Instance.m_CurrentTaskList.m_strName, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    s_Instance.m_CurrentTaskList = null;
+                }
+            }
+            else
+            {
+                Debug.Log("<color=ORANGE>TaskManager::RemoveTaskList:: Unable to remove task list with name '" + a_strTaskListName + "' because such a task list does not exist.</color>");
+            }
+        }
+
+        /// <summary>
+        /// Is the task list with the given name added in the list of task lists
+        /// </summary>
+        /// <param name="a_strTaskListName"></param>
+        /// <returns></returns>
+        public bool isTaskListExistInList(string a_strTaskListName)
+        {
+            return m_dictLevelTaskList.ContainsKey(a_strTaskListName);
+        }
+
+        /// <summary>
+        /// Sets the task list as the current
+        /// </summary>
+        /// <param name="a_strTaskListName"></param>
+        public static void SetCurrentTaskList(string a_strTaskListName)
+        {
+            s_Instance.setCurrentTaskList(a_strTaskListName);
         }
 
         /// <summary>
         /// Sets the tasklist as the current
         /// </summary>
-        private void setTaskList(string a_strLevelName)
+        private void setCurrentTaskList(string a_strTaskListName)
         {
-            if ((m_CurrentTaskList != null) && m_CurrentTaskList.m_strName.Equals(a_strLevelName, System.StringComparison.OrdinalIgnoreCase))
+            if ((m_CurrentTaskList != null) && m_CurrentTaskList.m_strName.Equals(a_strTaskListName, System.StringComparison.OrdinalIgnoreCase))
             {
                 return;
             }
 
             TaskList l_TaskList = null;
-            if (m_dictLevelTaskList.TryGetValue(a_strLevelName, out l_TaskList))
+            if (m_dictLevelTaskList.TryGetValue(a_strTaskListName, out l_TaskList))
             {
                 m_CurrentTaskList = l_TaskList;
-                Debug.Log("<color=BLUE>TaskManager::setTaskList:: Setting task list '" + a_strLevelName + "'</color>");
+                Debug.Log("<color=BLUE>TaskManager::setCurrentTaskList:: Setting task list '" + a_strTaskListName + "'</color>");
             }
             else
             {
-                Debug.Log("<color=ORANGE>TaskManager::setTaskList:: Task list for level type '"+ a_strLevelName + "' does not exist. Current task list unchanged.</color>");
+                Debug.Log("<color=ORANGE>TaskManager::setCurrentTaskList:: Task list for level type '" + a_strTaskListName + "' does not exist. Current task list unchanged.</color>");
             }
         }
 
