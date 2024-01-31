@@ -2,20 +2,42 @@
 <TaskList Name = "TaskList1" >
 
 	<Sequence ID = "Execute01" >
-		
+		<Task ID="0" TaskType="TaskLog" LogType="ERROR" LogMsg="Task log: Executing Sequence with name 'Execute01' of TaskList1"/>
+		<Task ID="1" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="2" TaskType="TaskLog" LogType="WARNING" LogMsg="Task log: Executing 3rd task of sequence Execute01"/>
+		<Task ID="3" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="4" TaskType="TaskLog" LogType="INFO" LogMsg="Executing last task of the sequence Execute01"/>
 	</Sequence>
 	
 	<Sequence ID = "Execute02" >
-				
+		<Task ID="0" TaskType="TaskLog" LogType="ERROR" LogMsg="Task log: Executing Sequence with name 'Execute02' of TaskList1"/>
+		<Task ID="1" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="2" TaskType="TaskLog" LogType="WARNING" LogMsg="Task log: Executing 3rd task of sequence Execute02"/>
+		<Task ID="3" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="4" TaskType="TaskLog" LogType="INFO" LogMsg="Executing last task of the sequence Execute02"/>		
 	</Sequence>
 	
 	<Sequence ID = "Execute03" >
+		<Task ID="0" TaskType="TaskLog" LogType="ERROR" LogMsg="Task log: Executing Sequence with name 'Execute03' of TaskList1"/>
+		<Task ID="1" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="2" TaskType="TaskLog" LogType="WARNING" LogMsg="Task log: Executing 3rd task of sequence Execute03"/>
+		<Task ID="3" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="4" TaskType="TaskLog" LogType="INFO" LogMsg="Executing last task of the sequence Execute03"/>		
 	</Sequence>
 	
 	<Sequence ID = "Execute04" >
-				
+		<Task ID="0" TaskType="TaskLog" LogType="ERROR" LogMsg="Task log: Executing Sequence with name 'Execute04' of TaskList1"/>
+		<Task ID="1" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="2" TaskType="TaskLog" LogType="WARNING" LogMsg="Task log: Executing 3rd task of sequence Execute04"/>
+		<Task ID="3" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="4" TaskType="TaskLog" LogType="INFO" LogMsg="Executing last task of the sequence Execute04"/>				
 	</Sequence>
 	
 	<Sequence ID = "Execute05" >
+		<Task ID="0" TaskType="TaskLog" LogType="ERROR" LogMsg="Task log: Executing Sequence with name 'Execute05' of TaskList1"/>
+		<Task ID="1" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="2" TaskType="TaskLog" LogType="WARNING" LogMsg="Task log: Executing 3rd task of sequence Execute05"/>
+		<Task ID="3" TaskType="TaskWait" WaitTime="5.0"/>
+		<Task ID="4" TaskType="TaskLog" LogType="INFO" LogMsg="Executing last task of the sequence Execute05"/>				
 	</Sequence>
 </TaskList>

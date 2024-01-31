@@ -33,7 +33,7 @@ namespace FRETBUZZ
             ITaskPool l_TaskPool = null;
             if (!m_dictTasksPools.TryGetValue(a_Task.m_strTaskType, out l_TaskPool))
             {
-                l_TaskPool = new TaskPool(10);
+                l_TaskPool = new TaskPool(a_Task.m_strTaskType, 10);
                 m_dictTasksPools.Add(a_Task.m_strTaskType, l_TaskPool);
             }
             ITask l_Task = l_TaskPool.getTask();

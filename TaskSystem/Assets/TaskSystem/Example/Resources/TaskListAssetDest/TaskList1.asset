@@ -17,21 +17,301 @@ MonoBehaviour:
   m_lstSequences:
   - m_strSequenceType: SimpleSequence
     m_strSequenceID: Execute01
-    m_iTaskCount: 0
-    m_lstTasks: []
+    m_iTaskCount: 5
+    m_lstTasks:
+    - m_strTaskID: 0
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 0
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: ERROR
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing Sequence with name ''Execute01'' of TaskList1'
+    - m_strTaskID: 1
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 1
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 2
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 2
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: WARNING
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing 3rd task of sequence Execute01'
+    - m_strTaskID: 3
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 3
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 4
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 4
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: INFO
+      - m_strKey: LogMsg
+        m_strValue: Executing last task of the sequence Execute01
   - m_strSequenceType: SimpleSequence
     m_strSequenceID: Execute02
-    m_iTaskCount: 0
-    m_lstTasks: []
+    m_iTaskCount: 5
+    m_lstTasks:
+    - m_strTaskID: 0
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 0
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: ERROR
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing Sequence with name ''Execute02'' of TaskList1'
+    - m_strTaskID: 1
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 1
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 2
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 2
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: WARNING
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing 3rd task of sequence Execute02'
+    - m_strTaskID: 3
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 3
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 4
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 4
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: INFO
+      - m_strKey: LogMsg
+        m_strValue: Executing last task of the sequence Execute02
   - m_strSequenceType: SimpleSequence
     m_strSequenceID: Execute03
-    m_iTaskCount: 0
-    m_lstTasks: []
+    m_iTaskCount: 5
+    m_lstTasks:
+    - m_strTaskID: 0
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 0
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: ERROR
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing Sequence with name ''Execute03'' of TaskList1'
+    - m_strTaskID: 1
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 1
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 2
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 2
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: WARNING
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing 3rd task of sequence Execute03'
+    - m_strTaskID: 3
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 3
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 4
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 4
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: INFO
+      - m_strKey: LogMsg
+        m_strValue: Executing last task of the sequence Execute03
   - m_strSequenceType: SimpleSequence
     m_strSequenceID: Execute04
-    m_iTaskCount: 0
-    m_lstTasks: []
+    m_iTaskCount: 5
+    m_lstTasks:
+    - m_strTaskID: 0
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 0
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: ERROR
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing Sequence with name ''Execute04'' of TaskList1'
+    - m_strTaskID: 1
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 1
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 2
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 2
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: WARNING
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing 3rd task of sequence Execute04'
+    - m_strTaskID: 3
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 3
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 4
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 4
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: INFO
+      - m_strKey: LogMsg
+        m_strValue: Executing last task of the sequence Execute04
   - m_strSequenceType: SimpleSequence
     m_strSequenceID: Execute05
-    m_iTaskCount: 0
-    m_lstTasks: []
+    m_iTaskCount: 5
+    m_lstTasks:
+    - m_strTaskID: 0
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 0
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: ERROR
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing Sequence with name ''Execute05'' of TaskList1'
+    - m_strTaskID: 1
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 1
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 2
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 2
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: WARNING
+      - m_strKey: LogMsg
+        m_strValue: 'Task log: Executing 3rd task of sequence Execute05'
+    - m_strTaskID: 3
+      m_strTaskType: TaskWait
+      m_iAttributeCount: 3
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 3
+      - m_strKey: TaskType
+        m_strValue: TaskWait
+      - m_strKey: WaitTime
+        m_strValue: 5.0
+    - m_strTaskID: 4
+      m_strTaskType: TaskLog
+      m_iAttributeCount: 4
+      m_lstTaskAttributes:
+      - m_strKey: ID
+        m_strValue: 4
+      - m_strKey: TaskType
+        m_strValue: TaskLog
+      - m_strKey: LogType
+        m_strValue: INFO
+      - m_strKey: LogMsg
+        m_strValue: Executing last task of the sequence Execute05

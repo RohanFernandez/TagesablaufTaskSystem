@@ -22,7 +22,7 @@ namespace FRETBUZZ
         /// <summary>
         /// The type of the pooled object
         /// </summary>
-        private System.Type m_Type = null;
+        protected System.Type m_Type = null;
 
         /// <summary>
         /// List of all the unpooled game objects
@@ -43,6 +43,10 @@ namespace FRETBUZZ
             {
                 createObj();
             }
+        }
+
+        public ObjectPool()
+        { 
         }
 
         /// <summary>

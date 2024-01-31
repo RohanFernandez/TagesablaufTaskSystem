@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExampleManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class ExampleManager : MonoBehaviour
 
     [SerializeField]
     private UnityEngine.UI.Text m_txtCurrentTaskListName = null;
+
+    [SerializeField]
+    private InputField m_InputFieldSequenceName = null;
 
     void Awake()
     {
@@ -42,5 +46,20 @@ public class ExampleManager : MonoBehaviour
         TaskManager.SetCurrentTaskList(a_strTaskAssetPath);
 
         m_txtCurrentTaskListName.text = TaskManager.CurrentTaskListName;
+    }
+
+    public void startSequence()
+    {
+        TaskManager.ExecuteSequence(m_InputFieldSequenceName.text);
+    }
+
+    public void stopSequence()
+    {
+        TaskManager.StopSequence(m_InputFieldSequenceName.text);
+    }
+
+    public void stopAllSequences()
+    {
+        TaskManager.StopAll();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FRETBUZZ
 {
-    public abstract class SequenceBase : ISequence
+    public class SequenceBase : ISequence
     {
         /// <summary>
         /// List of all tasks to be executed in this sequence
@@ -31,6 +31,10 @@ namespace FRETBUZZ
         /// The unique sequence ID
         /// </summary>
         protected string m_strSequenceID = string.Empty;
+
+        public SequenceBase()
+        { 
+        }
 
         public void addTask(ITask a_Task)
         {

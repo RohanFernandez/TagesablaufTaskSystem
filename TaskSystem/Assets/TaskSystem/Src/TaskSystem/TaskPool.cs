@@ -13,11 +13,19 @@ namespace FRETBUZZ
         int getPooledObjectCount();
     }
 
-    public class TaskPool: ObjectPool<ITask>, ITaskPool
+    public class TaskPool : ObjectPool<ITask>, ITaskPool
     {
-        public TaskPool(int a_iStartSize = 0)
-            : base(a_iStartSize)
+        public TaskPool(string a_strTaskType, int a_iStartSize = 0)
+            : base()
         {
+            m_Type = System.Type.GetType("FRETBUZZ." + a_strTaskType);
+
+            m_Pool = new Stack<ITask>(a_iStartSize);
+
+            for (int l_iIndex = 0; l_iIndex < a_iStartSize; l_iIndex++)
+            {
+                createObj();
+            }
         }
 
         public ITask getTask()

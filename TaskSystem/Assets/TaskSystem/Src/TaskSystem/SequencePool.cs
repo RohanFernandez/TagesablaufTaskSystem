@@ -13,11 +13,16 @@ namespace FRETBUZZ
         int getPooledObjectCount();
     }
 
-    public class SequencePool : ObjectPool<ISequence>, ISequencePool
+    public class SequencePool : ObjectPool<SequenceBase>, ISequencePool
     {
         public SequencePool(int a_iStartSize = 0)
             : base(a_iStartSize)
         {
+        }
+
+        public void returnToPool(ISequence a_Sequence)
+        {
+            base.returnToPool(a_Sequence as SequenceBase);
         }
 
         public ISequence getSequence()
